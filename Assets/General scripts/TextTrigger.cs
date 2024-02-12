@@ -5,10 +5,11 @@ using TMPro;
 
 public class TextTrigger : MonoBehaviour
 {
-    public InfoText infotext;
+   
 
-    public void triggerText()
+    public void triggerText(string title, string body, TextMeshProUGUI canvasTitle, TextMeshProUGUI canvasBody)
     {
-        FindObjectOfType<TextManager>().displayText(infotext);
+        canvasTitle.text = title;
+        canvasBody.text = body;
     }
 }

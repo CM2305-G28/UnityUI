@@ -10,6 +10,10 @@ public class ButtonDelay : MonoBehaviour
 public Button Button2;
 public Button Button3;
 
+//used to determine whether to make buttons interactable or uninteractable after delay
+//true == turns interactable, false == turns uninteractable
+public bool mode;
+
 
 
 public void Button1Clicked()
@@ -25,8 +29,14 @@ IEnumerator delayButton()
     Debug.Log(Time.time);
 
     // Buttons are set interactable after 0.8 second
-    Button2.interactable=true;
-    Button3.interactable=true;
+    if (mode==true){
+        Button2.interactable=true;
+        Button3.interactable=true;
+    }
+    else {
+        Button2.enabled=false;
+        Button3.enabled=false;
+    }
 }
 
     
