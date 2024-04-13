@@ -13,9 +13,7 @@ public class AnimationButtons : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        Animations.Add(new CipherAnimation("Animation 1", "Animation 1 desc"));
-        Animations.Add(new CipherAnimation("Animation 2", "Animation 2 desc"));
-        Animations.Add(new CipherAnimation("Animation 3", "Animation 3 desc"));
+        Animations.Add(new CipherAnimation("Enigma", "Enigma description"));
         foreach (CipherAnimation current_CipherAnimation in Animations)
         {
             textMeshPro.text = current_CipherAnimation.AName;

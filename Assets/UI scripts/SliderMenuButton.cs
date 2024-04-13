@@ -6,7 +6,7 @@ public class SliderMenuButton : MonoBehaviour
 {
     public GameObject PanelMenu;
 
-    public void TransMenu()
+    public void openMenu()
     {
         //Play show/hide animation
         if(PanelMenu != null)
@@ -14,8 +14,20 @@ public class SliderMenuButton : MonoBehaviour
             Animator animator = PanelMenu.GetComponent<Animator>();
             if(animator != null)
             {
-                bool isOpen = animator.GetBool("show");
-                animator.SetBool("show", !isOpen);
+                animator.SetBool("show", true);
+            }
+        }
+    }
+
+    public void closeMenu()
+    {
+        
+        if(PanelMenu != null)
+        {
+            Animator animator = PanelMenu.GetComponent<Animator>();
+            if(animator != null)
+            {
+                animator.SetBool("show", false);
             }
         }
     }
