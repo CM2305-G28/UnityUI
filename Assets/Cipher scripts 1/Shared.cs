@@ -2,7 +2,7 @@ using TMPro;
 
 public class Shared
 {
-    public void GetKeySize(TMP_Dropdown block_size, out byte[] byte_key)
+    public static void GetKeySize(TMP_Dropdown block_size, int[] values, out byte[] byte_key)
     {
         if (block_size.value==0){
             // Create a byte array to hold the random key

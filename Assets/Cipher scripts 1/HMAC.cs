@@ -8,17 +8,19 @@ using TMPro;
 
 public class HMAC : MonoBehaviour
 {
-    public TMP_InputField inputMessage1; // THIS IS THE TOP LEFT TEXT FIELD THAT IS USED AS INPUT (string plaintext = inputMessage1.text;)
-    public TMP_InputField inputMessage2;
-    public TMP_InputField inputMessage3;
+    public TMP_InputField senderMessage; // THIS IS THE TOP LEFT TEXT FIELD THAT IS USED AS INPUT (string plaintext = inputMessage1.text;)
+    public TMP_InputField receiverMessage;
+    public TMP_InputField middleMessage;
+    public TMP_InputField middleMac;
     public TMP_InputField key;
     public TMP_Dropdown block_size;
     public Toggle gen_new_key;
-    public TMP_InputField encryptedText; // THIS IS THE OUTPUT TEXT FIELD (encryptedText.text = macHexString;)
+    public TMP_InputField senderOutput; // THIS IS THE OUTPUT TEXT FIELD (encryptedText.text = macHexString;)
 
     public void GetHash()
     {
-        string plaintext = inputMessage1.text;
+        string plaintext = senderMessage.text;
+
         byte[] byte_key;
 
         if (block_size.value==0){
@@ -81,6 +83,9 @@ public class HMAC : MonoBehaviour
                 break;
         }
 
-        encryptedText.text = macHexString;
+        senderOutput.text = macHexString;
+        receiverMessage.text = plaintext;
+        middleMessage.text = plaintext;
+        middleMac.text = macHexString;
     }
 }
