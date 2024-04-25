@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.IO;
 using TMPro;
 
+
 public class ECB : MonoBehaviour
 {
     public TMP_InputField clearTextInput;
@@ -20,7 +21,8 @@ public class ECB : MonoBehaviour
     {
         string plaintext = clearTextInput.text;
         byte[] byte_key;
-        
+        //Shared.GetKeySize(block_size, out byte_key);
+
         if (block_size.value==0){
             // Create a byte array to hold the random key
             byte_key = new byte[16]; 
@@ -31,6 +33,8 @@ public class ECB : MonoBehaviour
         else{
             byte_key = new byte[32];
         }
+
+
         
         if (gen_new_key.isOn){
             // Generate random bytes to fill the array
@@ -39,7 +43,7 @@ public class ECB : MonoBehaviour
                 rng.GetBytes(byte_key);
             }
             Debug.Log("different");
-            //display generated key
+            // Display generated key
             key.text=Convert.ToBase64String(byte_key);
         }
         else{
