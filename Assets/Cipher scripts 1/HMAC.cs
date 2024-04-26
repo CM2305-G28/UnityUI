@@ -18,6 +18,43 @@ public class HMAC : MonoBehaviour
     public Toggle gen_new_key;
     public TMP_InputField senderOutput; // THIS IS THE OUTPUT TEXT FIELD (encryptedText.text = macHexString;)
 
+    private string GetMacHexString(){
+        string macHexString = null;
+
+        switch (block_size.value){
+            case 0:
+                using (HMACSHA1 hmac = new HMACSHA1(byte_key))
+                {
+                    // Compute the MAC for the message
+                    byte[] macBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(plaintext));
+        
+                    // Convert the MAC bytes to a hexadecimal string
+                    macHexString = BitConverter.ToString(macBytes).Replace("-", "").ToLower();
+                }
+                break;
+            case 1:
+                using (HMACSHA256 hmac = new HMACSHA256(byte_key))
+                {
+                    // Compute the MAC for the message
+                    byte[] macBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(plaintext));
+
+                    // Convert the MAC bytes to a hexadecimal string
+                    macHexString = BitConverter.ToString(macBytes).Replace("-", "").ToLower();
+                }
+                break;
+            case 2:
+                using (HMACSHA512 hmac = new HMACSHA512(byte_key))
+                {
+                    // Compute the MAC for the message
+                    byte[] macBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(plaintext));
+        
+                    // Convert the MAC bytes to a hexadecimal string
+                    macHexString = BitConverter.ToString(macBytes).Replace("-", "").ToLower();
+                }
+                break;
+    }
+    return macHexString;
+
     public void GetHash()
     {
         string plaintext = senderMessage.text;
@@ -49,40 +86,8 @@ public class HMAC : MonoBehaviour
             byte_key = Encoding.UTF8.GetBytes(key.text);
             Debug.Log("same");
         }
-        string macHexString = null;
 
-        switch (byte_key.Length){
-            case 20:
-                using (HMACSHA1 hmac = new HMACSHA1(byte_key))
-                {
-                    // Compute the MAC for the message
-                    byte[] macBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(plaintext));
-        
-                    // Convert the MAC bytes to a hexadecimal string
-                    macHexString = BitConverter.ToString(macBytes).Replace("-", "").ToLower();
-                }
-                break;
-            case 32:
-                using (HMACSHA256 hmac = new HMACSHA256(byte_key))
-                {
-                    // Compute the MAC for the message
-                    byte[] macBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(plaintext));
-
-                    // Convert the MAC bytes to a hexadecimal string
-                    macHexString = BitConverter.ToString(macBytes).Replace("-", "").ToLower();
-                }
-                break;
-            case 64:
-                using (HMACSHA512 hmac = new HMACSHA512(byte_key))
-                {
-                    // Compute the MAC for the message
-                    byte[] macBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(plaintext));
-        
-                    // Convert the MAC bytes to a hexadecimal string
-                    macHexString = BitConverter.ToString(macBytes).Replace("-", "").ToLower();
-                }
-                break;
-        }
+        macHexString = GetMacHexString()
 
         senderOutput.text = macHexString;
         receiverMessage.text = plaintext;
@@ -91,24 +96,25 @@ public class HMAC : MonoBehaviour
         receiverKey.text = senderKey.text;
     }
 
+    public TMP_InputField OGMac;
+    public TMP_InputField validationCheckMessage;
+    public TMP_InputField generatedMac;
+    public Toggle changeMessage;
+
     public void SendMessage(){
-        public TMP_InputField middleMessage;
-        public TMP_InputField middleMac;
-        public TMP_InputField receiverMessage;
-        public TMP_InputField OGMac;
-        public TMP_InputField receiverKey;
-        public TMP_InputField validationCheckMessage;
-        public Toggle changeMessage;
         
         if (changeMessage.isOn){
             validationCheckMessage.text = "MAC does not match!"
+            receiverMessage.text = middleMessage.text + "[ALTERED]";
+            generatedMac.text = GetMacHexString();
         }
+
         else{
             validationCheckMessage.text = "MAC is valid."
+            receiverMessage.text = middleMessage.text;
+            generatedMac.text = middleMac.text;
         }
 
-        receiverMessage.text = middleMessage.text;
         OGMac.text = middleMac.text;
-
     }
 }
