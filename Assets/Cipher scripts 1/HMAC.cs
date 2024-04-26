@@ -12,10 +12,14 @@ public class HMAC : MonoBehaviour
     public TMP_InputField receiverMessage;
     public TMP_InputField middleMessage;
     public TMP_InputField middleMac;
+
+    public TMP_InputField OGMac;
     public TMP_InputField senderKey;
     public TMP_InputField receiverKey;
     public TMP_Dropdown block_size;
     public Toggle gen_new_key;
+    public Toggle change_message;
+    public TextMeshProUGUI validationCheckMessage;
     public TMP_InputField senderOutput; // THIS IS THE OUTPUT TEXT FIELD (encryptedText.text = macHexString;)
 
     public void GetHash()
@@ -46,7 +50,7 @@ public class HMAC : MonoBehaviour
             senderKey.text=Convert.ToBase64String(byte_key);
         }
         else{
-            byte_key = Encoding.UTF8.GetBytes(key.text);
+            byte_key = Encoding.UTF8.GetBytes(senderKey.text);
             Debug.Log("same");
         }
         string macHexString = null;
@@ -85,27 +89,19 @@ public class HMAC : MonoBehaviour
         }
         Debug.Log(macHexString);
         senderOutput.text = macHexString;
-        receiverMessage.text = plaintext;
         middleMessage.text = plaintext;
         middleMac.text = macHexString;
         receiverKey.text = senderKey.text;
     }
 
     public void SendMessage(){
-        public TMP_InputField middleMessage;
-        public TMP_InputField middleMac;
-        public TMP_InputField receiverMessage;
-        public TMP_InputField OGMac;
-        public TMP_InputField receiverKey;
-        public TMP_InputField validationCheckMessage;
-        public Toggle changeMessage;
         
-        if (changeMessage.isOn){
-            validationCheckMessage.text = "MAC does not match!"
-        }
-        else{
-            validationCheckMessage.text = "MAC is valid."
-        }
+        // if (change_message.isOn){
+        //     validationCheckMessage.text = "MAC does not match!";
+        // }
+        // else{
+        //     validationCheckMessage.text = "MAC is valid.";
+        // }
 
         receiverMessage.text = middleMessage.text;
         OGMac.text = middleMac.text;
