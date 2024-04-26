@@ -50,8 +50,8 @@ public class HMAC : MonoBehaviour
         }
         string macHexString = null;
 
-        switch (byte_key.Length){
-            case 20:
+        switch (block_size.value){
+            case 0:
                 using (HMACSHA1 hmac = new HMACSHA1(byte_key))
                 {
                     // Compute the MAC for the message
@@ -61,7 +61,7 @@ public class HMAC : MonoBehaviour
                     macHexString = BitConverter.ToString(macBytes).Replace("-", "").ToLower();
                 }
                 break;
-            case 32:
+            case 1:
                 using (HMACSHA256 hmac = new HMACSHA256(byte_key))
                 {
                     // Compute the MAC for the message
@@ -71,7 +71,7 @@ public class HMAC : MonoBehaviour
                     macHexString = BitConverter.ToString(macBytes).Replace("-", "").ToLower();
                 }
                 break;
-            case 64:
+            case 2:
                 using (HMACSHA512 hmac = new HMACSHA512(byte_key))
                 {
                     // Compute the MAC for the message
@@ -82,7 +82,7 @@ public class HMAC : MonoBehaviour
                 }
                 break;
         }
-
+        Debug.Log(macHexString);
         senderOutput.text = macHexString;
         receiverMessage.text = plaintext;
         middleMessage.text = plaintext;
