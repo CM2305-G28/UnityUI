@@ -12,7 +12,8 @@ public class HMAC : MonoBehaviour
     public TMP_InputField receiverMessage;
     public TMP_InputField middleMessage;
     public TMP_InputField middleMac;
-    public TMP_InputField key;
+    public TMP_InputField senderKey;
+    public TMP_InputField receiverKey;
     public TMP_Dropdown block_size;
     public Toggle gen_new_key;
     public TMP_InputField senderOutput; // THIS IS THE OUTPUT TEXT FIELD (encryptedText.text = macHexString;)
@@ -42,7 +43,7 @@ public class HMAC : MonoBehaviour
             }
             Debug.Log("different");
             // Display generated key
-            key.text=Convert.ToBase64String(byte_key);
+            senderKey.text=Convert.ToBase64String(byte_key);
         }
         else{
             byte_key = Encoding.UTF8.GetBytes(key.text);
@@ -87,5 +88,27 @@ public class HMAC : MonoBehaviour
         receiverMessage.text = plaintext;
         middleMessage.text = plaintext;
         middleMac.text = macHexString;
+        receiverKey.text = senderKey.text;
+    }
+
+    public void SendMessage(){
+        public TMP_InputField middleMessage;
+        public TMP_InputField middleMac;
+        public TMP_InputField receiverMessage;
+        public TMP_InputField OGMac;
+        public TMP_InputField receiverKey;
+        public TMP_InputField validationCheckMessage;
+        public Toggle changeMessage;
+        
+        if (changeMessage.isOn){
+            validationCheckMessage.text = "MAC does not match!"
+        }
+        else{
+            validationCheckMessage.text = "MAC is valid."
+        }
+
+        receiverMessage.text = middleMessage.text;
+        OGMac.text = middleMac.text;
+
     }
 }
