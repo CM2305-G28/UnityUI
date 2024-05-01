@@ -3,11 +3,6 @@ using TMPro;
 
 public class SSL_TLS_HANDSHAKE : MonoBehaviour
 {
-    // 1
-    public TMP_InputField clientMessage;
-    public TextMeshProUGUI serverStatus;
-    public TextMeshProUGUI clientStatus;
-    public TMP_InputField clientCryptoInformation;
     
     private string GenerateCryptographicInformation()
     {
@@ -17,7 +12,7 @@ public class SSL_TLS_HANDSHAKE : MonoBehaviour
         return cryptoInfo;
     }
     
-    public void ClientHello()
+    public void ClientHello(TMP_InputField clientMessage, TextMeshProUGUI serverStatus, TextMeshProUGUI clientStatus, TMP_InputField clientCryptoInformation)
     {
         serverStatus.text = $"SERVER RECEIVED: {clientMessage.text}";
         clientStatus.text = "MESSAGE SENT!";
@@ -25,7 +20,7 @@ public class SSL_TLS_HANDSHAKE : MonoBehaviour
     }
     
     // 2
-    public void ServerHello()
+    public void ServerHello(TextMeshProUGUI clientStatus, TMP_InputField clientCryptoInformation)
     {
         clientCryptoInformation.text = "USING " +  GenerateCryptographicInformation().Split("\n")[0];
         clientStatus.text = "Verifying.";
