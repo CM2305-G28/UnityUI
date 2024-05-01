@@ -207,9 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7eea935a3e94aa4cb463669b7535df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infotext:
-    name: Test Animation
-    infotext: This is a test animation for how caesar would be animated.
 --- !u!114 &109530225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,7 +478,7 @@ Animator:
   m_GameObject: {fileID: 192548715}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6f14ff53b9daeca46b250520f537cb58, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5c04d6b291dd60b4aadb1d9dcb555236, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1598,7 +1595,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7529412}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 0}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4629,7 +4626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: 20.6926}
+  m_AnchoredPosition: {x: -0.000012398, y: 20.6926}
   m_SizeDelta: {x: 144.8655, y: 177.6702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2143023150
@@ -4642,7 +4639,7 @@ Animator:
   m_GameObject: {fileID: 2143023148}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6f14ff53b9daeca46b250520f537cb58, type: 2}
+  m_Controller: {fileID: 9100000, guid: 638251a7e8206ad4389c6d114c5e0ef8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
