@@ -4,8 +4,8 @@ using TMPro;
 public class SSL_TLS_HANDSHAKE : MonoBehaviour
 {
     public TMP_InputField clientMessage;
-    public TMP_InputField serverStatus;
-    public TMP_InputField clientStatus;
+    public TextMeshProUGUI serverStatus;
+    public TextMeshProUGUI clientStatus;
     public TMP_InputField clientCryptoInformation;
     
     private void GenerateCryptographicInformation()
