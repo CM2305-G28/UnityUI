@@ -30,13 +30,12 @@ public class TaskList : MonoBehaviour
         
     }
 
-    public void addNewTask(GameObject inputBox){
+    public void addNewTask(TMP_Dropdown inputBox){
         //takes UI input field as arg and instantiates a task prefab with that text
-        taskText.text = inputBox.GetComponent<TMP_InputField>().text;
+        taskText.text = inputBox.options[inputBox.value].text;
         GameObject task = Instantiate(taskPrefab, canvasParent.transform, false);
         task.SetActive(true);
         objectives.Add(task);
-        inputBox.GetComponent<TMP_InputField>().text="";
     }
 
     public void removeTask(GameObject taskToRemove){

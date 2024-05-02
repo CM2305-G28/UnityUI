@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using General_scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class AnimationButtons : MonoBehaviour {
         Animations.Add(new CipherAnimation("Enigma", "The Enigma encryption was a complex cipher machine used primarily by the German military during World War II to encode messages. It consisted of rotating wheels (known as rotors), which substituted letters according to a predetermined configuration."));
         Animations.Add(new CipherAnimation("Electronic code book (ECB)", "ECB (Electronic Codebook) encryption is a basic symmetric encryption mode used to encrypt plaintext into ciphertext."));
         Animations.Add(new CipherAnimation("Message authentication code (MAC)", "MAC (Message Authentication Code) encryption involves generating a tag based on a message and a secret key."));
+        Animations.Add(new CipherAnimation("SSL,TLS handshake", "SSL/TLS (Secure Sockets Layer/Transport Layer Security) is a cryptographic protocol designed to secure communication over a computer network, ensuring confidentiality, integrity, and authentication."));
         foreach (CipherAnimation current_CipherAnimation in Animations)
         {
             textMeshPro.text = current_CipherAnimation.AName;

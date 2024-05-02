@@ -33,6 +33,6 @@ EditorBuildSettings:
     path: Assets/Scenes/cbc.unity
     guid: 34de105d988c9af438310d640face96e
   - enabled: 1
-    path: Assets/Scenes/ebc.unity
+    path: Assets/Scenes/Electronic code book (ECB).unity
     guid: 1edfbd2d2f7b964439d4171d13bec96e
   m_configObjects: {}

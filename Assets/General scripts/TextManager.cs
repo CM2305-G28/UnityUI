@@ -1,22 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
-
-public class TextManager : MonoBehaviour
+namespace General_scripts
 {
-    
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI infoText;
-
-
-    public void displayText(InfoText text)
+    public class TextManager : MonoBehaviour
     {
-        nameText.text = text.name;
-        infoText.text = text.infotext;
+    
+        public TextMeshProUGUI nameText;
+        public TextMeshProUGUI infoText;
+
+
+        public void displayText(InfoText text)
+        {
+            nameText.text = text.name;
+            infoText.text = text.infotext;
+        }
+
+
     }
-
-
 }

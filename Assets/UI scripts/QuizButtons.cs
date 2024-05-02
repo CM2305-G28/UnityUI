@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using General_scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,9 +15,10 @@ public class QuizButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Quizzes.Add(new Quiz("test 1", "test desc"));
-        Quizzes.Add(new Quiz("test 2", "test desc23"));
-        Quizzes.Add(new Quiz("test 3", "test desc23424"));
+        Quizzes.Add(new Quiz("Enigma test", "Three questions about the enigma animation."));
+        Quizzes.Add(new Quiz("MAC test", "Three questions about the MAC animation."));
+        Quizzes.Add(new Quiz("SSL, TLS handshake test", "Three questions about the handshake animation."));
+        Quizzes.Add(new Quiz("ECB test", "Three questions about the ECB animation."));
         foreach (Quiz current_quiz in Quizzes)
         {
             textMeshPro.text = current_quiz.QName;
