@@ -79,6 +79,14 @@ namespace UI.Login
                 
             successTransition.changeScene();
         }
+        
+        public void LoginAsGuest() 
+        {
+            negativeFeedbackField.text = "";
+            Debug.Log("Skipping server - using Offline Guest mode");
+            Debug.Log("Registered & Logged in successfully!");
+            successTransition.changeScene();
+        }
 
         private bool TryGetClient(out Client client)
         {
