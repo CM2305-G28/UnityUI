@@ -22,14 +22,16 @@ namespace General_scripts
             scoreBox.text = _score + "/" + Total;
             if (_score == Total)
             {
-                // // put objective completion call here
-                // for (int i = 0; i < Objectives.getObjectives().Count; i++)
-                // {
-                //     if (Objectives.getObjectives()[i].getTask() == testName)
-                //     {
-                //         Objectives.getObjectives()[i].setComplete(true);
-                //     }
-                // }
+                // put objective completion call here
+                for (int i = 0; i < Objectives.objectives.Count; i++)
+                {
+                    if (Objectives.objectives[i].getTask() == testName)
+                    {
+                        Objectives.objectives[i].setComplete(true);
+                        Debug.Log("Updating obj");
+                        Debug.Log(Objectives.objectives[i].isComplete());
+                    }
+                }
                 
             }
         }

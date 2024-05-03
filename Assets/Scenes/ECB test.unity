@@ -5146,6 +5146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreBox: {fileID: 2040818331}
+  testName: ECB test
 --- !u!4 &1674427057
 Transform:
   m_ObjectHideFlags: 0

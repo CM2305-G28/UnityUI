@@ -5,12 +5,14 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class HomeCircle : MonoBehaviour
 {
     public Image uiCircle;
     public TextMeshProUGUI uiText;
     public float steps;
+    [FormerlySerializedAs("_taskList")] public GameObject taskList;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,17 +29,25 @@ public class HomeCircle : MonoBehaviour
         uiText.text=Math.Round(uiCircle.fillAmount*100).ToString()+"%";
     }
 
-    public void updateFill(GameObject taskList){
+    public void updateFill(){
         List<Toggle> toggles = taskList.GetComponentsInChildren<Toggle>().ToList();
-        float on=0;
-        foreach (Toggle t in toggles){
-            if (t.isOn){
-                on++;
+        if (toggles.Count != 0)
+        {
+            float on=0;
+            foreach (Toggle t in toggles){
+                if (t.isOn){
+                    on++;
                 
+                }
             }
+            float percent = on/toggles.Count;
+            uiCircle.fillAmount=percent; 
         }
-        float percent = on/toggles.Count;
-        uiCircle.fillAmount=percent;
+        else
+        {
+            uiCircle.fillAmount=0; 
+        }
+        
         uiText.text=Math.Round(uiCircle.fillAmount*100).ToString()+"%";
     }
 

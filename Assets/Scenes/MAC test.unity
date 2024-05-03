@@ -1891,6 +1891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreBox: {fileID: 1780230415}
+  testName: MAC test
 --- !u!4 &663467169
 Transform:
   m_ObjectHideFlags: 0

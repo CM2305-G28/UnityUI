@@ -5600,6 +5600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreBox: {fileID: 861042361}
+  testName: Enigma test
 --- !u!4 &1675754861
 Transform:
   m_ObjectHideFlags: 0

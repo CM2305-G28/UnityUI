@@ -3,9 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Text;
 using System.Security.Cryptography;
-using System.IO;
 using TMPro;
-using UnityEditor.VersionControl;
 
 public class HMAC : MonoBehaviour
 {

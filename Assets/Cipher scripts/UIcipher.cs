@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 using TMPro;
 using System;
-using UnityEditor.VersionControl;
+
 
 public class UIcipher : MonoBehaviour
 {

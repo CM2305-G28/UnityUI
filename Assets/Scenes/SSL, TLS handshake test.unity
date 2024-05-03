@@ -1706,6 +1706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreBox: {fileID: 578306898}
+  testName: SSL, TLS handshake test
 --- !u!4 &346432659
 Transform:
   m_ObjectHideFlags: 0

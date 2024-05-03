@@ -10,5 +10,15 @@ namespace General_scripts
             this.AName = name;
             this.ADesc = desc; 
         }
+
+        public string getName()
+        {
+            return this.AName;
+        }
+        
+        public string getDesc()
+        {
+            return this.ADesc;
+        }
     }
 }
